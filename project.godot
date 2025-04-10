@@ -19,7 +19,7 @@ project/assembly_name="Texture Array Tools"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/addon_toggler/plugin.cfg")
+enabled=PackedStringArray("res://addons/texture_array_tools/plugin.cfg")
 
 [rendering]
 

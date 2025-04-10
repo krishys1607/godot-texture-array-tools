@@ -71,3 +71,6 @@ $RECYCLE.BIN/
 
 # --- User Specific ---
 .vscode/
+
+_resized_images/
+_generated_t2darrays/
