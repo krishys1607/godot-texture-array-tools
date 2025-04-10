@@ -1,7 +1,7 @@
 # Texture Array Tools Addon
 
+<p align="left">
 <!-- Badges cringelord area -->
-<p align="center">
   <img src="https://img.shields.io/badge/Godot-4.4%2B-478CBF?logo=godotengine" alt="Godot Version"/>
   <img src="https://img.shields.io/badge/Status-Beta-orange" alt="Status: Beta"/>
  <img src="https://img.shields.io/badge/Made%20in-VS%20Code-007ACC?logo=visualstudiocode" alt="Made in VS Code"/>
@@ -10,7 +10,13 @@
   </a>
 </p>
 
-Your one-stop(?) shop for wrangling Texture2DArrays and batch-resizing images directly within the Godot editor. Less alt-tabbing, more game dev (or more time debugging this addon, who knows?).
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/cdd64a19-899d-4a67-be65-f65cc6138267" alt="GIF of the T2DA Tools in Godot 4.4.1" width="400">
+</p>
+
+Your one-stop(?) shop for wrangling Texture2DArrays and batch-resizing images directly within the Godot editor.
+
+Less alt-tabbing, more game dev... I hope. (or more time debugging this addon, who knows?)
 
 ---
 
@@ -51,8 +57,8 @@ For when you need to resize a batch of images, without having to manually resize
   * Select multiple input images.
   * Specify output path.
   * Choose target dimensions (use largest found or specify custom WxH).
-  * **Aspect Ratio Modes:** Stretch, Keep Aspect (Pad), Keep Aspect (Crop). (WIP)
-  * **Interpolation Filters:** Nearest, Bilinear, Cubic, Lanczos. (Needs testing)
+  * **Aspect Ratio Modes:** Stretch, Keep Aspect (Pad), Keep Aspect (Crop).
+  * **Interpolation Filters:** Nearest, Bilinear, Cubic, Lanczos.
   * **Padding Color:** Choose the color used when padding (only for Pad mode).
   * **Output Naming:** Add optional Prefix and/or Suffix to filenames.
   * **Output Format:** Save as PNG, JPG, WebP, or auto-detect from input.
@@ -89,11 +95,22 @@ For when you need to resize a batch of images, without having to manually resize
 
 After enabling the plugin, find the "Texture Array Tools" dock panel.
 
+Both the T2DA Generator and Image Resizer are all crammed into the same dockable tab, for better or for worse.
+
+<p align="left">
+  <table>
+      <tr>
+        <td><img src="https://github.com/user-attachments/assets/3acc626b-aebc-4f52-bf42-461454715935" alt="T2DA Generator UI" width="400"></td>
+        <td><img src="https://github.com/user-attachments/assets/fd7be7ad-5c10-436c-8bbc-78aa8f31b5b6" alt="Image Resizer UI" width="400"></td>
+      </tr>
+  </table>
+</p>
+
 ### 📜 Texture2DArray Generator
 
 1. **Input Images:** Click `Browse...` (Load icon) to select two or more images.
     * **IMPORTANT:** By default, all selected images *must* have the same dimensions and pixel format (e.g., all RGBA8, all RGB8).
-    * **TIP:** Use the **`Ensure Format?`** checkbox and dropdown below to force all images into a compatible format (like RGBA8) *before* building. This is highly recommended if something is amiss! (WIP, also needs testing)
+    * **TIP:** Use the **`Ensure Format?`** checkbox and dropdown below to force all images into a compatible format (like RGBA8) *before* building. This is highly recommended if something is amiss!
 2. **Output File:** Click `Browse...` (Folder icon) or type the path to the output folder (`res://...`).
 3. **Array Name:** Click `Browse...` (Save icon) or type the desired base filename for your `.tres` file.
 4. **Options:**
@@ -128,8 +145,8 @@ After enabling the plugin, find the "Texture Array Tools" dock panel.
 
 * **Gen -> Resizer:** Sends the paths currently loaded in the T2DA Generator *to* the Image Resizer's input list. Useful if T2DA validation fails due to size/format.
 * **Resizer Input -> Gen:** Sends the paths currently loaded in the Image Resizer's input list *to* the T2DA Generator.
-* **Resizer Output -> Gen:** Scans the Resizer's output directory and sends any found image paths *to* the T2DA Generator.
-* **Auto Transfer:** If checked, automatically performs the "Resizer Output -> Gen" transfer after a successful resize operation!
+* **Resizer Output -> Gen:** Transfers the list of image paths that were successfully created during the last resize operation to the T2DA Generator. (Uses the stored list, doesn't re-scan the directory).
+* **Auto Transfer:** If checked, automatically performs the 'Resizer Output -> Gen' transfer (transferring the paths from the last successful resize) after the resize operation completes!
 
 ### ✨ Tooltips & Further Information
 
